@@ -15,7 +15,7 @@ import Lightbox from 'react-image-lightbox';
 import Images from '../constants/Images'; 
 import Information from '../constants/Information'; 
 
-const Index = () => {
+const Index = (props) => {
   const mode = localStorage.getItem("light-mode");
   
   /* States */
@@ -37,6 +37,13 @@ const Index = () => {
 
   /* Effects */
   React.useEffect(() => {
+    if(props.location.latestProject && projects.length){
+      const index = projects.length - 1;
+
+      setImages(projects[index].images);    
+      setImageViewer({ ...imageViewer, isOpen: true });
+    }
+
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);

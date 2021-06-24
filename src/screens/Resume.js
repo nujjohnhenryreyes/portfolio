@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from "classnames";
+import { Link } from 'react-router-dom';
 import {
   Row,
   Col, 
@@ -14,6 +15,7 @@ import Theme from '../constants/Theme';
 import SkillBar from 'react-skillbars';
 import Images from '../constants/Images'; 
 import Information from '../constants/Information'; 
+import Files from '../constants/Files'; 
 
 const Resume = () => {
   const mode = localStorage.getItem("light-mode");
@@ -27,39 +29,54 @@ const Resume = () => {
   ];
   const experience = [
     { 
-    title: "Junior Software Engineer", company: "Xypher Solutions Inc.", dateInterval: "July 2020 - Present", 
-    reponsibilities: [
-        "Develop web applications using MongoDB, Express.js, React.js and Node.js.",
-        "Assessing project using Agile and Scrum principles.",
-        "Responsible for maintaining and upgrading database schema.",
-        "Provides RESTful APIs for the client.",
-      ] 
+      title: "Mid Software Engineer", company: "Xypher Solutions Inc.", dateInterval: "March 2021 - Present", 
+      reponsibilities: [
+          "Develop scalable application using MERN Stack.",
+          "Develop a cross-platform mobile app using React Native Framework.",
+          "Led and supervised the backend department and team project.",
+          "Oversaw all major database practices with best systematic methods in MongoDB.",
+          "Planning to resolve technical issues and other problems of the team.",
+          "Responsible for maintaining good server performance.",
+          "Responsible for reviewing code structure and convention."
+        ] 
+      },
+    { 
+      title: "Junior Software Engineer", company: "Xypher Solutions Inc.", dateInterval: "July 2020 - March 2021", 
+      reponsibilities: [
+          "Develop scalable application using MERN Stack.",
+          "Develop a cross-platform mobile app using React Native Framework.",
+          "Oversaw all major database practices with best systematic methods in MongoDB.",
+          "Reviewing code structure and convention of other developers.",
+        ] 
     },
     { 
-      title: "Intern Quality Assurance", company: "iLLimitado Inc.", dateInterval: "July 2019 - August 2019", 
+      title: "Quality Assurance Intern ", company: "iLLimitado Inc.", dateInterval: "July 2019 - August 2019", 
       reponsibilities: [
-        "Testing of web and mobile application during system development.",
-        "Encode bugs and error in google spreadsheet.",
-        "Design payslip for clients and created a wireframe using Microsoft Powerpoint.",
+        "Monitor system performance.",
+        "Tests every feature of the system and encode bugs and issues encountered in Google Spread Sheet.",
+        "Creating wireframes using Power Point Presentation.",
+        "Creating wireframes using Power Point Presentation.",
+        "Designing payslip for the clients.",
+        "Creating flow chart for the future process.",
       ] 
     },
   ];
   const frontend = [
     { "type": "React.js", "level": 90 },
-    { "type": "Javascript", "level": 92 },
+    { "type": "Javascript", "level": 90 },
     { "type": "JQuery", "level": 87 },
-    { "type": "HTML/CSS", "level": 88 },
-    { "type": "Bootstrap", "level": 83 },
-    { "type": "SASS", "level": 85 },
+    { "type": "HTML/CSS", "level": 89 },
+    { "type": "Bootstrap", "level": 85 },
+    { "type": "SASS", "level": 82 },
   ];
   const backend = [
-    { "type": "Node.js", "level": 94 },
-    { "type": "PHP", "level": 91 },
-    { "type": "SQL", "level": 93 },
-    { "type": "MongoDB", "level": 91 },
+    { "type": "Node.js", "level": 92 },
+    { "type": "PHP", "level": 89 },
+    { "type": "SQL", "level": 91 },
+    { "type": "MongoDB", "level": 93 },
   ];
   const miscellaneous = [
-    { "type": "Git", "level": 94 },
+    { "type": "Git", "level": 88 },
     { "type": "Design", "level": 84 },
   ];
   const interest = [
@@ -189,12 +206,14 @@ const Resume = () => {
                                         <div>
                                             <img src={`${Images.FormalAttireBackground}`} alt="" style={styles.image}/>
                                             <div align="center">
+                                              <Link to={Files.CurriculumVitaePdf} target="_blank" download>
                                                 <Button 
                                                     onMouseEnter={(e) => handleMouseHover(e, "#325083")} 
                                                     onMouseLeave={(e) => handleMouseHover(e, "#263f6a")}
                                                     style={styles.downloadResumeBtn}>
                                                     <i className="fa fa-download"/> Download Resume
                                                 </Button>  
+                                              </Link>
                                             </div>  
                                         </div>
                                         <div style={styles.nameSection}>
@@ -209,7 +228,7 @@ const Resume = () => {
                                                 </div>
                                                 <div style={styles.infoGroup}>
                                                     <label style={styles.infoGroupLabel}>Phone: </label> 
-                                                    <span>+63 {Information.mobileNumber}</span>
+                                                    <span>{Information.mobileNumber}</span>
                                                 </div>
                                                 <div style={styles.infoGroup}>
                                                     <label style={styles.infoGroupLabel}>Email: </label> 

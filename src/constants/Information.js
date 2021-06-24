@@ -5,9 +5,9 @@ const middleName = "Vera";
 const lastName = "Reyes";
 const designation = "Software Engineer";
 const image = Images.GradPic;
-const mobileNumber = "9650624447";
+const mobileNumber = "(+63) 965 534 3148";
 const emailAddress = "nujjohnhenryreyes@gmail.com";
-const completeAddress = "145 Panapaan IV, Bacoor, Cavite";
+const completeAddress = "Paradahan I, Tanza, Cavite";
 
 export default {
     firstName,

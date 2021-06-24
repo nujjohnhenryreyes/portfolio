@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from "classnames";
+import { Link } from 'react-router-dom';
 import {
   Row,
   Col, 
@@ -16,8 +17,9 @@ import Background from '../components/Background';
 import Theme from '../constants/Theme'; 
 import Images from '../constants/Images'; 
 import Information from '../constants/Information'; 
+import Files from '../constants/Files'; 
 
-const Index = () => {
+const Index = (props) => {
   const mode = localStorage.getItem("light-mode");
 
   /* States */
@@ -138,17 +140,23 @@ const Index = () => {
                                   { getAboutItems() }
                                   <div className="row">
                                     <div className="col-sm-6 col-md-12 col-xl-4" style={styles.btnCols}>
-                                      <Button 
-                                        onMouseEnter={(e) => handleMouseHover(e, "#325083")} 
-                                        onMouseLeave={(e) => handleMouseHover(e, "#263f6a")}
-                                        style={styles.downloadResumeBtn}>
-                                            <i className="fa fa-download"/> Download Resume
-                                      </Button>   
+                                      <Link to={Files.CurriculumVitaePdf} target="_blank" download>
+                                        <Button 
+                                          onMouseEnter={(e) => handleMouseHover(e, "#325083")} 
+                                          onMouseLeave={(e) => handleMouseHover(e, "#263f6a")}
+                                          style={styles.downloadResumeBtn}>
+                                              <i className="fa fa-download"/> Download Resume
+                                        </Button>   
+                                      </Link>
                                       </div> 
                                       <div className="col-sm-6 col-md-12 col-xl-4" style={styles.btnCols}>
                                       <Button 
                                         onMouseEnter={(e) => handleMouseHover(e, "#a19898")} 
                                         onMouseLeave={(e) => handleMouseHover(e, "#8c8383")}
+                                        onClick={() => props.history.push({
+                                          pathname: "/portfolio",
+                                          latestProject: true
+                                        })}                          
                                         style={styles.latestProjectBtn}>
                                           <i className="fa fa-eye"/> View Latest Project
                                       </Button>    
@@ -160,7 +168,7 @@ const Index = () => {
                                   <div className="row" style={styles.contactInfo}>
                                     <div className="col-12">
                                       <label className="fa fa-phone" style={styles.contactIcon} />
-                                      <span style={styles.contactText}>{`+63 ${Information.mobileNumber}`}</span>
+                                      <span style={styles.contactText}>{Information.mobileNumber}</span>
                                     </div>
                                     <div className="col-12">  
                                       <label className="fa fa-envelope" style={styles.contactIcon} />
